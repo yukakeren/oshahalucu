@@ -1,9 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Eu-CByJh)
-|    NRP     |      Name      |
+| NRP | Name |
 | :--------: | :------------: |
-| 5025221000 | Student 1 Name |
-| 5025221000 | Student 2 Name |
-| 5025221000 | Student 3 Name |
+| 5025201055 | SAMUEL BERKAT HULU |
+| 5025241019 | Jahhaza Assiqooyah |
+| 5025241023 | Hamzah Ali Abdillah |
+| 5025241031 | Qurrata A`yun Kamil |
 
 # Praktikum Modul 3 _(Module 3 Lab Work)_
 
@@ -23,15 +24,16 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
 
 - **Code:**
 
-  `qemu-system-x86_64 -smp 2 -m 256 -display curses -vga std -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0 vga=2'`
+  `qemu-system-x86_64 -smp 2 -m 256 -display curses -vga std -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0'`
 
 - **Explanation:**
 
-  `put your answer here`
+  `Follow all github modul steps`
 
 - **Screenshot:**
 
-  `put your answer here`
+
+  
 
 ### Soal 2
 
@@ -309,7 +311,24 @@ praktikan2:praktikan2
 
 - **Code:**
 
-  `put your answer here`
+  In osboot directory:
+  `mkdir -p mylinuxios/boot/grub`
+
+  `grub.cfg`
+  ```bash
+  set timeout=5
+  set default=0
+
+  menuentry "MyLinux" {
+      linux /boot/bzImage init=/init console=ttyS0
+      initrd /boot/myramdisk.gz
+  }
+  ```
+  In osboot directory:
+  `grub-mkrescue -o mylinux.iso mylinuxiso`
+
+  Run using:
+  `qemu-system-x86_64 -cdrom mylinux.iso -m 256 -nographic -serial mon:stdio`
 
 - **Explanation:**
 
@@ -317,7 +336,7 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  `put your answer here`
+  ![alt text](image.png)
 
 ---
 
