@@ -51,7 +51,7 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
 
 - **Screenshot:**
 
-  ![alt text](image.png)
+  ![alt text](modul3/image.png)
 
 ### Soal 3
 
@@ -90,7 +90,7 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-1.png)
+  ![alt text](modul3/image-1.png)
 
 ### Soal 4
 
@@ -118,11 +118,11 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-10.png) 
-  ![alt text](image-6.png)
-  ![alt text](image-9.png)
-  ![alt text](image-7.png)
-  ![alt text](image-8.png)  
+  ![alt text](modul3/image-10.png) 
+  ![alt text](modul3/image-6.png)
+  ![alt text](modul3/image-9.png)
+  ![alt text](modul3/image-7.png)
+  ![alt text](modul3/image-8.png)  
 
 ### Soal 5
 
@@ -154,7 +154,7 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-11.png)
+  ![alt text](modul3/image-11.png)
 
 ### Soal 6
 
@@ -200,8 +200,8 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-13.png)
-  ![alt text](image-12.png)
+  ![alt text](modul3/image-13.png)
+  ![alt text](modul3/image-12.png)
 
 ### Soal 7
 
@@ -223,7 +223,7 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-14.png)
+  ![alt text](modul3/image-14.png)
 
 ### Soal 8
 
@@ -269,7 +269,7 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-15.png)
+  ![alt text](modul3/image-15.png)
 
   
 ### Soal 9
@@ -295,9 +295,9 @@ praktikan2:praktikan2
 
 - **Screenshot:**
 
-  ![alt text](image-16.png)
+  ![alt text](modul3/image-16.png)
 
-  ![alt text](image-17.png)
+  ![alt text](modul3/image-17.png)
 
 ### Soal 10
 
