@@ -42,12 +42,12 @@ Di suatu pagi hari yang cerah, Budiman salah satu mahasiswa Informatika ditugask
    tar -xvf linux-6.1.1.tar.xz
    cd linux-6.1.1
    ```
-4. Membuat sebuah configurasi seperti `config` & Copy paste kode tersebut ke .config
+4. Membuat sebuah configurasi seperti [config](./config) & Copy paste kode tersebut ke .config
    ```bash
    touch .config
    nano .config
    ```
-5. Kompilasi Kernel
+5. Kompilasi kernel 
    ```bash
    make -j$(nproc)
    ```
@@ -184,11 +184,11 @@ praktikan2:praktikan2
     3. `chown` ****dan `chmod 770` **** dilakukan agar directory ./root hanya bisa di akses oleh root dan hanya pemilik folder yang bisa melakukan *read, write* dan *execute* ( jalankan pada directory myramdisk )
 - **Screenshot:**
 
-![image.png](img/image%201.png)
+    ![image.png](img/image%201.png)
 
-![image.png](img/image%202.png)
+    ![image.png](img/image%202.png)
 
-![image.png](img/image%203.png)
+    ![image.png](img/image%203.png)
 
 ### Soal 5
 
@@ -343,15 +343,15 @@ praktikan2:praktikan2
     ![Screenshot from 2025-05-28 05-59-31.png](img/a6d6841b-58d6-4485-a3ec-ec2f8389eb0c.png)
     
 
-![Screenshot from 2025-05-28 06-34-08.png](img/Screenshot_from_2025-05-28_06-34-08.png)
+    ![Screenshot from 2025-05-28 06-34-08.png](img/Screenshot_from_2025-05-28_06-34-08.png)
 
-![Screenshot from 2025-05-28 06-33-31.png](img/Screenshot_from_2025-05-28_06-33-31.png)
+    ![Screenshot from 2025-05-28 06-33-31.png](img/Screenshot_from_2025-05-28_06-33-31.png)
 
-![Screenshot from 2025-05-28 06-34-23.png](img/Screenshot_from_2025-05-28_06-34-23.png)
+    ![Screenshot from 2025-05-28 06-34-23.png](img/Screenshot_from_2025-05-28_06-34-23.png)
 
-![Screenshot from 2025-05-28 06-35-07.png](img/Screenshot_from_2025-05-28_06-35-07.png)
+    ![Screenshot from 2025-05-28 06-35-07.png](img/Screenshot_from_2025-05-28_06-35-07.png)
 
-![Screenshot from 2025-05-28 06-41-18.png](img/Screenshot_from_2025-05-28_06-41-18.png)
+    ![Screenshot from 2025-05-28 06-41-18.png](img/Screenshot_from_2025-05-28_06-41-18.png)
 
 ### Soal 9
 
@@ -374,17 +374,15 @@ praktikan2:praktikan2
     g++ -static -o budiman main.cpp
     
     #3
-    cp budiman ../myramdisk/bin/
+    cp binary ../myramdisk/bin/
     
-    #4
-    alias te="/bin/budiman"
     ```
     
 - **Explanation:**
     1. Melakukan clone git repository
     2. Compaile *main.cpp* ke dalam binary format agar bisa di execute dengan menambahkan `-static`
     3. Menambahkan file yang telah dikompile ke dalam /bin agar bisa dijalankan di filesystem
-    4. Menambahkan perintah **no #4** kedalam file /etc/profile agar memudahkan ketika mengakses
+    4. Text editor dijalankan dengan perintah binary
 - **Screenshot:**
     
     ![image.png](img/image%205.png)
@@ -428,6 +426,8 @@ praktikan2:praktikan2
     2. Tambahkan kode tersebut agar ketika iso diload maka akan memasuki grub
     3. Melakukan compile folde mylinuxiso kedalam format iso
 - **Screenshot:**
+
+    ![image](img/10.jpeg)
 
 ---
 
