@@ -6,6 +6,7 @@
 | 5025241023 | Hamzah Ali Abdillah |
 | 5025241031 | Qurrata A`yun Kamil |
 
+
 # Praktikum Modul 3 *(Module 3 Lab Work)*
 
 ### Laporan Resmi Praktikum Modul 3 *(Module 3 Lab Work Report)*
@@ -24,10 +25,24 @@ Di suatu pagi hari yang cerah, Budiman salah satu mahasiswa Informatika ditugask
 
 **Answer:**
 
+```bash
+qemu-system-x86_64 -smp 2 -m 256 -display curses -vga std -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0'
+
+qemu-system-x86_64 -smp 2 -m 256 -monitor /dev/null  -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0 loglevel=3' -no-reboot -nographic
+```
+
 - **Code:**
     
     ```bash
-    qemu-system-x86_64 -smp 2 -m 256 -display curses -vga std -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0'
+    #!/bin/sh
+    /bin/mount -t proc none /proc
+    /bin/mount -t sysfs none /sys
+    
+    while true
+    do    
+        /bin/getty -L ttyS0 115200 vt100    
+        sleep 1
+    done
     ```
     
 - **Explanation:**
@@ -70,7 +85,7 @@ Di suatu pagi hari yang cerah, Budiman salah satu mahasiswa Informatika ditugask
     3. Menambahkan busybox agar dapat menjalankan perintah Unix/Linux seperti `ls`, `cp`, `mv`, `mount`, dan banyak lainnya ke dalam direktori `bin`
 - **Screenshot:**
     
-    ![image.png](image/image.png)
+    ![image.png](img/image.png)
     
 
 ### Soal 3
@@ -131,7 +146,7 @@ praktikan2:praktikan2
     4. Mengisi file passwd dengan format diatas (#4) `*username:hash:UID:GID:comment:home_directory:shell`,* hasil pada no 2 diletakan pada bagian **hash**
 - **Screenshot:**
     
-    ![image-1.png](image/image-1.png)
+    ![image-1.png](img/image-1.png)
     
 
 ### Soal 4
@@ -165,11 +180,11 @@ praktikan2:praktikan2
     3. `chown` ****dan `chmod 770` **** dilakukan agar directory ./root hanya bisa di akses oleh root dan hanya pemilik folder yang bisa melakukan *read, write* dan *execute* ( jalankan pada directory myramdisk )
 - **Screenshot:**
 
-![image.png](image/image%201.png)
+![image.png](img/image%201.png)
 
-![image.png](image/image%202.png)
+![image.png](img/image%202.png)
 
-![image.png](image/image%203.png)
+![image.png](img/image%203.png)
 
 ### Soal 5
 
@@ -203,7 +218,7 @@ praktikan2:praktikan2
     
 - **Screenshot:**
     
-    ![Screenshot from 2025-05-27 18-35-48.png](image/bf3e4c1a-445c-44b2-9787-88ab9afc6188.png)
+    ![Screenshot from 2025-05-27 18-35-48.png](img/bf3e4c1a-445c-44b2-9787-88ab9afc6188.png)
     
 
 ### Soal 6
@@ -236,7 +251,7 @@ praktikan2:praktikan2
     #4 
     nano etc/profile
     if [ -f /etc/os_banner ]; then
-    	cat /etc/os_banner
+        cat /etc/os_banner
     fi
     ```
     
@@ -247,7 +262,7 @@ praktikan2:praktikan2
     4. Melakukan penambahan kode pada */etc/profile* agar kode pada *os_banner* dimunculkan ketika login
 - **Screenshot:**
     
-    ![image.png](image/df79a1c2-a781-48a2-9592-19669ade257a.png)
+    ![image.png](img/df79a1c2-a781-48a2-9592-19669ade257a.png)
     
 
 ### Soal 7
@@ -274,7 +289,7 @@ praktikan2:praktikan2
     
 - **Screenshot:**
     
-    ![image.png](image/image%204.png)
+    ![image.png](img/image%204.png)
     
 
 ### Soal 8
@@ -287,7 +302,7 @@ praktikan2:praktikan2
 
 **Answer:**
 
-- **Code:**`test.sh` in ./
+- **Code:**`test.sh`
     
     ```bash
     #!/bin/sh
@@ -316,12 +331,23 @@ praktikan2:praktikan2
     
 - **Explanation:**
     
-    `Adding export PS1 into each user bash with different color is repetitive. Using function make it easier to manage. Make .bashrc file in user folder. Inside, set prompt with color.on .bashrc \u:\w\$ show username and path, then \e[COLORm choose user color.`
+    Menambahkan ekspor PS1 ke dalam setiap bash pengguna dengan warna yang berbeda adalah hal yang berulang. Menggunakan fungsi agar lebih mudah dikelola. Buat file .bashrc di folder pengguna. Di dalamnya, atur prompt dengan color.on .bashrc \u:\w\$ tampilkan nama pengguna dan path, lalu \e[COLORm pilih warna pengguna.
     
+
 - **Screenshot:**
     
-    alt text
+    ![Screenshot from 2025-05-28 05-59-31.png](img/a6d6841b-58d6-4485-a3ec-ec2f8389eb0c.png)
     
+
+![Screenshot from 2025-05-28 06-34-08.png](img/Screenshot_from_2025-05-28_06-34-08.png)
+
+![Screenshot from 2025-05-28 06-33-31.png](img/Screenshot_from_2025-05-28_06-33-31.png)
+
+![Screenshot from 2025-05-28 06-34-23.png](img/Screenshot_from_2025-05-28_06-34-23.png)
+
+![Screenshot from 2025-05-28 06-35-07.png](img/Screenshot_from_2025-05-28_06-35-07.png)
+
+![Screenshot from 2025-05-28 06-41-18.png](img/Screenshot_from_2025-05-28_06-41-18.png)
 
 ### Soal 9
 
@@ -337,13 +363,14 @@ praktikan2:praktikan2
     
     ```bash
     #1
-    git clone https://github.com/morisab/budiman-text-editor.git && cd budiman budiman-text-editor
+    git clone https://github.com/morisab/budiman-text-editor.gi 
+    cd budiman budiman-text-editor
     
     #2
     g++ -static -o budiman main.cpp
     
     #3
-    cp budiman ~/osboot/myramdisk/bin
+    cp budiman ../myramdisk/bin/
     
     #4
     alias te="/bin/budiman"
@@ -356,9 +383,9 @@ praktikan2:praktikan2
     4. Menambahkan perintah **no #4** kedalam file /etc/profile agar memudahkan ketika mengakses
 - **Screenshot:**
     
-    ![image.png](image/image%205.png)
+    ![image.png](img/image%205.png)
     
-    ![image.png](image/image%206.png)
+    ![image.png](img/image%206.png)
     
 
 ### Soal 10
@@ -403,3 +430,4 @@ praktikan2:praktikan2
 Pada akhirnya sistem operasi Budiman yang telah kamu buat dengan susah payah dikumpulkan ke Dosen mengatasnamakan Budiman. Kamu tidak diberikan credit apapun. Budiman pun tidak memberikan kata terimakasih kepadamu. Kamupun kecewa tetapi setidaknya kamu telah belajar untuk menjadi pembuat sistem operasi sederhana yang andal. Selamat!
 
 *At last, the OS you painstakingly created was submitted to the lecturer under Budiman’s name. You received no credit. Budiman didn’t even thank you. You feel disappointed, but at least you’ve learned to become a reliable creator of simple operating systems. Congratulations!*
+
