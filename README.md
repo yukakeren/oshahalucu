@@ -32,7 +32,7 @@ qemu-system-x86_64 -smp 2 -m 256 -monitor /dev/null  -kernel bzImage -initrd myr
 ```
 
 - **Code:**
-    
+    `run.sh`
     ```bash
     #!/bin/sh
     /bin/mount -t proc none /proc
@@ -44,6 +44,7 @@ qemu-system-x86_64 -smp 2 -m 256 -monitor /dev/null  -kernel bzImage -initrd myr
         sleep 1
     done
     ```
+    Run `chmod +x run.sh` so we can execute with `./run.sh`
     
 - **Explanation:**
     
