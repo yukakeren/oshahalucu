@@ -25,33 +25,36 @@ Di suatu pagi hari yang cerah, Budiman salah satu mahasiswa Informatika ditugask
 
 **Answer:**
 
-```bash
-qemu-system-x86_64 -smp 2 -m 256 -display curses -vga std -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0'
+1. Install beberapa tools seperti `qemu`, `build-essential`, `bison`, `flex`, dan lainnya.
 
-qemu-system-x86_64 -smp 2 -m 256 -monitor /dev/null  -kernel bzImage -initrd myramdisk.gz -append 'console=ttyS0 loglevel=3' -no-reboot -nographic
-```
-
-- **Code:**
-    `run.sh`
     ```bash
-    #!/bin/sh
-    /bin/mount -t proc none /proc
-    /bin/mount -t sysfs none /sys
-    
-    while true
-    do    
-        /bin/getty -L ttyS0 115200 vt100    
-        sleep 1
-    done
+    sudo apt -y update    
+    sudo apt -y install qemu-system build-essential bison flex libelf-dev libssl-dev bc grub-common grub-pc libncurses-dev libssl-dev mtools grub-pc-bin xorriso tmux
     ```
-    Run `chmod +x run.sh` so we can execute with `./run.sh`
-    
-- **Explanation:**
-    
-    `Follow all github modul steps`
-    
-- **Screenshot:**
-
+2. Membuat sebuah directory untuk menyimpan seluruh hasil dari project ini
+   ```bash
+   mkdir -p osboot
+   cd osboot
+   ```
+3. Download dan buat sebuah kernel linux
+   ```bash
+   wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.1.tar.xz
+   tar -xvf linux-6.1.1.tar.xz
+   cd linux-6.1.1
+   ```
+4. Membuat sebuah configurasi seperti `config` & Copy paste kode tersebut ke .config
+   ```bash
+   touch .config
+   nano .config
+   ```
+5. Kompilasi Kernel
+   ```bash
+   make -j$(nproc)
+   ```
+6. Mendapatkan file bzImage setelah kompilasi
+   ```bash
+    cp arch/x86/boot/bzImage ..
+   ```
 ### Soal 2
 
 > Setelah seluruh prasyarat siap, Budiman siap untuk membuat sistem operasinya. Dosen meminta untuk sistem operasi Budiman harus memiliki directory bin, dev, proc, sys, tmp, dan sisop. Lagi-lagi Budiman meminta bantuanmu. Bantulah Ia dalam membuat directory tersebut!
